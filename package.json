@@ -1,0 +1,41 @@
+{
+  "name": "test-sonar-cloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevOps-Dislinkt-Team/test-sonar-cloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevOps-Dislinkt-Team/test-sonar-cloud/issues"
+  },
+  "homepage": "https://github.com/DevOps-Dislinkt-Team/test-sonar-cloud#readme",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.22.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "avoid"
+  }
+}
