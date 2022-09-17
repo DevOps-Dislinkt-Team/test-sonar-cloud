@@ -11,17 +11,17 @@ services:
 
 install:
   # Install dependencies for tests
-  - npm ci
+  # - npm ci
 
 addons:
   sonarcloud:
     organization: 'devops-dislinkt-team'
     token:
-      secure: '843425204abdaf8a3d40ff2c5ec0bcb453e6a29e'
+      secure: 843425204abdaf8a3d40ff2c5ec0bcb453e6a29e
 
 before_script:
   # Start server and client for tests
-  - npm run dev &
+  # - npm run dev &
 
 script:
   # Run tests
