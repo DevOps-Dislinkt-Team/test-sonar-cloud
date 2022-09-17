@@ -6,7 +6,7 @@ node_js:
   - '14.17.4'
 
 services:
-  # Use Docker command line
+  # Use Docker command lines
   - docker
 
 install:
