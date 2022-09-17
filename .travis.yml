@@ -17,7 +17,7 @@ addons:
   sonarcloud:
     organization: 'devops-dislinkt-team'
     token:
-      secure: 'd3053bd9a8b525719f3184574454862183f8ece2'
+      secure: '87ad7784d968d7ed2a78f8d5c280d9d7ce7bacee'
 
 before_script:
   # Start server and client for tests
@@ -26,7 +26,7 @@ before_script:
 script:
   # Run tests
   # - npm run test
-  - sonar-scanner
+  - sonar-scanner -X
 
 branches:
   only:
