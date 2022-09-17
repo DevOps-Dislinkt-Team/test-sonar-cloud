@@ -13,7 +13,7 @@ before_install:
   - docker build -t dislink-team/test-service -f Dockerfile .
   - docker network create dislinkt_network-test
   - docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=workingadmin123 -e MYSQL_DATABASE=testservice-db --name test-db --net dislinkt_network-test mysql
-  - sleep 10 && docker run -d -p 5005:5000 -e NODE_ENV=development -e API_PORT=5000 -e DB_NAME=testservice-db -e DB_ADMIN_USERNAME=root -e DB_ADMIN_PASSWORD=workingadmin123 -e DB_HOST=test-db -e DB_PORT=3306 --name test-service --net dislinkt_network-test dislink-team/test-service
+  # - sleep 10 && docker run -d -p 5005:5000 -e NODE_ENV=development -e API_PORT=5000 -e DB_NAME=testservice-db -e DB_ADMIN_USERNAME=root -e DB_ADMIN_PASSWORD=workingadmin123 -e DB_HOST=test-db -e DB_PORT=3306 --name test-service --net dislinkt_network-test dislink-team/test-service
 
 install:
   # Install dependencies for tests
@@ -31,8 +31,9 @@ before_script:
 
 script:
   # Run test
-  - docker exec -it test-service npm run test
-  # - sonar-scanner
+  - docker run -d -p 5005:5000 -e NODE_ENV=development -e API_PORT=5000 -e DB_NAME=testservice-db -e DB_ADMIN_USERNAME=root -e DB_ADMIN_PASSWORD=workingadmin123 -e DB_HOST=test-db -e DB_PORT=3306 --name test-service --net dislinkt_network-test dislink-team/test-service npm run test
+  # - docker exec -it test-service npm run test
+  - sonar-scanner
 
 branches:
   only:
