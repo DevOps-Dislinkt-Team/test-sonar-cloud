@@ -1,0 +1,45 @@
+version: '3'
+networks:
+  dislinkt_network:
+    external: true
+services:
+  test-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test-service
+    hostname: testservice
+    networks:
+      - dislinkt_network
+    depends_on:
+      - test-db
+    environment:
+      NODE_ENV: development
+      API_PORT: 5000
+      DB_NAME: testservice-db
+      DB_ADMIN_USERNAME: root
+      DB_ADMIN_PASSWORD: workingadmin123
+      DB_HOST: test-db
+      DB_PORT: 3306
+    ports:
+      - 5005:5000
+    volumes:
+      - .:/app
+
+  test-db:
+    image: mysql
+    container_name: test-db
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - dislinkt_network
+    environment:
+      MYSQL_ROOT_PASSWORD: workingadmin123
+      MYSQL_DATABASE: testservice-db
+    ports:
+      - 3306:3306
+    volumes:
+      - test-mysql-data:/var/lib/mysql
+
+volumes:
+  test-mysql-data:
+    driver: local

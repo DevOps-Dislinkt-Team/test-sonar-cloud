@@ -1,5 +1,9 @@
 const express = require('express');
 const cors = require('cors');
+const { apiPort } = require('./config');
+const sequelize = require('./src/services/db/database-setup.service');
+const { setupRelations, seed } = require('./src/services/db/database.service');
+const userRoutes = require('./src/modules/user/user.routes');
 
 // Initialize app
 const app = express();
@@ -17,6 +21,9 @@ app.use((req, res, next) => {
   next();
 });
 
+// Routes
+app.use('/api/users', userRoutes);
+
 // load balancer
 app.use('/hc', (req, res, next) => {
   res.status(200).json({});
@@ -30,10 +37,15 @@ app.use((err, req, res, next) => {
   res.status(statusCode).json({ message: message });
 });
 
+setupRelations();
+
 (async () => {
   try {
-    app.listen(5000);
-    console.log(`Server started at port ${5000}`);
+    await sequelize.sync();
+    await seed();
+
+    app.listen(apiPort);
+    console.log(`Server started at port ${apiPort}`);
   } catch (err) {
     console.log(err);
   }

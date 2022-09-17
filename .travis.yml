@@ -7,26 +7,26 @@ node_js:
 
 services:
   # Use Docker command line
-  # - docker
+  - docker
 
 install:
   # Install dependencies for tests
-  # - npm ci
+  - npm ci
 
-addons:
-  sonarcloud:
-    organization: 'devops-dislinkt-team'
-    token:
-      secure: 'YZVVnqBvDjjetYT4p4TCXfIeVGO7XAjzLMHoQRrRC1rq+SmC4EdSzAW3IWBeGW7wIHJhtg4/W4Wv04qGVUvRsLmoQvZx0yC29inev4Fi9JNq1WKsD0pmQOKh3WFHYVJNpMf4sgh70J2duLT2mg/v5C/Pw2pozOKVxDMSuLN1RZoUqC0gSvGzLR+IUNLHmF0OhYo3JKZRya3LywShqpK6ggBHJHXZYJ4nEN9cEu9GAFm2xf1nC02eROobFQgp5imvOlW0VEmvN+kK9LXUsadGWtp8F6R6CP27LphAON7CZKM6V1P3g5Vt5xqJH+x54G0qAAn4RFy+lL2zXy1imlDjLhMlYyinMsV/2D5bm8gk/A/+kw2ZR7LuhkFAO0fmGN4TablhgA/qcL19kfhgo4VXrXT4ZlAeCe3L0UEzqKfjbsDuMoHrWjVrf2v+8D05mfqfWQXNiGvn9m3prVz/wD6z0G4f9Hx0kU2fRM3GMgSeAqYE96I6OnyRTjoDyYhcPQyN6MWxmegOwNwbFJGHSES4UMTXIHFXyGHC4UM34FrY2HkCfIkjqoSErcYN5+1mMZW/89rCVEwdA2nhKGcvW24QXxORKd5Cu51ccXulJOajZ9gxtgRDT0Ai08HteUaHeuJeGer8PKNyDiVqCMWUuS9wiL6WW2DSy8ich6Y8kFK4S4Y='
+# addons:
+#   sonarcloud:
+#     organization: 'devops-dislinkt-team'
+#     token:
+#       secure: 'YZVVnqBvDjjetYT4p4TCXfIeVGO7XAjzLMHoQRrRC1rq+SmC4EdSzAW3IWBeGW7wIHJhtg4/W4Wv04qGVUvRsLmoQvZx0yC29inev4Fi9JNq1WKsD0pmQOKh3WFHYVJNpMf4sgh70J2duLT2mg/v5C/Pw2pozOKVxDMSuLN1RZoUqC0gSvGzLR+IUNLHmF0OhYo3JKZRya3LywShqpK6ggBHJHXZYJ4nEN9cEu9GAFm2xf1nC02eROobFQgp5imvOlW0VEmvN+kK9LXUsadGWtp8F6R6CP27LphAON7CZKM6V1P3g5Vt5xqJH+x54G0qAAn4RFy+lL2zXy1imlDjLhMlYyinMsV/2D5bm8gk/A/+kw2ZR7LuhkFAO0fmGN4TablhgA/qcL19kfhgo4VXrXT4ZlAeCe3L0UEzqKfjbsDuMoHrWjVrf2v+8D05mfqfWQXNiGvn9m3prVz/wD6z0G4f9Hx0kU2fRM3GMgSeAqYE96I6OnyRTjoDyYhcPQyN6MWxmegOwNwbFJGHSES4UMTXIHFXyGHC4UM34FrY2HkCfIkjqoSErcYN5+1mMZW/89rCVEwdA2nhKGcvW24QXxORKd5Cu51ccXulJOajZ9gxtgRDT0Ai08HteUaHeuJeGer8PKNyDiVqCMWUuS9wiL6WW2DSy8ich6Y8kFK4S4Y='
 
 before_script:
   # Start server and client for tests
-  # - npm run dev &
+  - npm run dev &
 
 script:
   # Run test
-  # - npm run test
-  - sonar-scanner
+  - npm run test
+  # - sonar-scanner
 
 branches:
   only:
