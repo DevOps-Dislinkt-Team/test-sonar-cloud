@@ -17,7 +17,7 @@ addons:
   sonarcloud:
     organization: 'devops-dislinkt-team'
     token:
-      secure: '87ad7784d968d7ed2a78f8d5c280d9d7ce7bacee'
+      secure: '843425204abdaf8a3d40ff2c5ec0bcb453e6a29e'
 
 before_script:
   # Start server and client for tests
