@@ -24,7 +24,7 @@ before_script:
   # - npm run dev &
 
 script:
-  # Run tests
+  # Run test
   # - npm run test
   - sonar-scanner
 
