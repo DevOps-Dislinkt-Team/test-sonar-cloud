@@ -1,0 +1,34 @@
+# Set the language
+language: node_js
+
+# Set the Node version
+node_js:
+  - '14.17.4'
+
+services:
+  # Use Docker command line
+  # - docker
+
+install:
+  # Install dependencies for tests
+  - npm ci
+
+addons:
+  sonarcloud:
+    organization: 'devops-dislinkt-team'
+    token:
+      secure: 'oi4ZSNZ/dA0iN1Lkb2A4bzROlGqbQRCX2WbrW/D2sDeUGJcg2RDw+Gpsjta92o8AH3JYgk3tgjB+Jwv7hjJk+4UCJuYyThXn3NjbY+Ua04Bn1'
+
+before_script:
+  # Start server and client for tests
+  - npm run dev &
+
+script:
+  # Run tests
+  # - npm run test
+  - sonar-scanner
+
+branches:
+  only:
+    - main
+    - develop
