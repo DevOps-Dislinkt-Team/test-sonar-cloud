@@ -1,6 +1,6 @@
 const assert = require('assert');
-const User = require('../src/modules/user/models/user.entity');
-const sequelize = require('../src/services/db/database-setup.service');
+const User = require('../../src/modules/user/models/user.entity');
+const sequelize = require('../../src/services/db/database-setup.service');
 
 describe('Integration tests:', () => {
   it('Integration test 1', async () => {
