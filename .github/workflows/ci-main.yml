@@ -24,7 +24,7 @@ jobs:
         with:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           release_name: Release ${{ steps.tag_version.outputs.new_tag }}
-          prerelease: false
+          prerelease: true
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
